@@ -6,7 +6,7 @@ export default class AddAvatarFieldToUsers1597168591478
     await queryRunner.addColumn(
       'users',
       new TableColumn({
-        name: 'Avatar',
+        name: 'avatar',
         type: 'varchar',
         isNullable: true,
       }),

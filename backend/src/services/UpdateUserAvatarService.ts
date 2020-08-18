@@ -22,10 +22,10 @@ class UpdateUserAvatarService {
       throw new Error('Only authenticated users can change avatar.');
     }
 
-    if (user.Avatar) {
+    if (user.avatar) {
       // Delete old avatar
 
-      const userAvatarFilePath = path.join(uploadConfig.directory, user.Avatar);
+      const userAvatarFilePath = path.join(uploadConfig.directory, user.avatar);
       const userAvatarFileExists = await fs.promises.stat(userAvatarFilePath);
 
       if (userAvatarFileExists) {
@@ -33,7 +33,7 @@ class UpdateUserAvatarService {
       }
     }
 
-    user.Avatar = avatarFilename;
+    user.avatar = avatarFilename;
     await usersRepository.save(user);
 
     return user;
