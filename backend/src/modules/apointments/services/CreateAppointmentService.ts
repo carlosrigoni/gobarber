@@ -1,10 +1,10 @@
 /* eslint-disable camelcase */
 import { startOfHour } from 'date-fns';
 import { getCustomRepository } from 'typeorm';
-import Appointment from '../models/Appointment';
-import AppointmentRepository from '../repositories/AppointmentsRepository';
+import Appointment from '@modules/apointments/infra/typeorm/entities/Appointment';
+import AppointmentRepository from '@modules/apointments/repositories/AppointmentsRepository';
 
-import AppError from '../errors/AppError';
+import AppError from '@shared/errors/AppError';
 
 interface Request {
   provider_id: string;
