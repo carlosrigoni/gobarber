@@ -11,11 +11,11 @@ import UpdateUserAvatarService from '@modules/users/services/UpdateUserAvatarSer
 
 const usersRouter = Router();
 const upload = multer(uploadConfig);
-const usersRepository = new UsersRepository();
 
 usersRouter.post('/', async (request, response) => {
   const { name, email, password } = request.body;
 
+  const usersRepository = new UsersRepository();
   const CreateUser = new CreateUserService(usersRepository);
 
   const user = await CreateUser.execute({ name, email, password });
@@ -30,6 +30,7 @@ usersRouter.patch(
   ensureAuthenticated,
   upload.single('avatar'),
   async (request, response) => {
+    const usersRepository = new UsersRepository();
     const updateUserAvatar = new UpdateUserAvatarService(usersRepository);
 
     const user = await updateUserAvatar.execute({
