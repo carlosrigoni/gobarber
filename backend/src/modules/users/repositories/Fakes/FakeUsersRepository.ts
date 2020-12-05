@@ -1,7 +1,6 @@
 import IUserRepository from '@modules/users/repositories/IUserRepository';
 import ICreateUserDTO from '@modules/users/dtos/ICreateUser.dto';
-
-import User from '../../infra/typeorm/entities/Users';
+import User from '@modules/users/infra/typeorm/entities/Users';
 import { uuid } from 'uuidv4';
 
 class UsersRepository implements IUserRepository {
